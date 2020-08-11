@@ -1,0 +1,67 @@
+random_seed: 444
+dataset:
+  type: 'patch'
+  add_rgb: False
+  rotate_to_center: True
+  patch_size: [32, 32]
+  batch_size: 64
+  workers: 4
+  train:
+    enable: True
+    random_flip: True
+    random_shift: True
+    pickle_file: 'training/data/path'   # for example, ../../data/KITTI/pickle_files/patch_caronly_train.pickle
+  val:
+    enable: True
+    random_flip: False
+    random_shift: False
+    from_rgb_detection: False
+    pickle_file: 'validation/data/path'
+  test:
+    enable: True
+    random_flip: False
+    random_shift: False
+    from_rgb_detection: True
+    pickle_file: 'testing/data/path'
+
+model:
+  name: 'patchnet'
+  init: 'xavier'
+  threshold_offset: 0.5
+  backbone: 'resnext'
+
+scheduler:
+  lr_scheduler:
+    clip: 0.00001
+    decay_rate: 0.1
+    decay_list: [40, 80]
+  bnm_scheduler:
+    enable: True
+    momentum: 0.5
+    clip: 0.01
+    decay_rate: 0.1
+    decay_list: [10, 20]
+
+optimizer:
+  type: 'adam'
+  lr: 0.001
+  weight_decay: 0
+
+trainer:
+  max_epoch: 100
+  eval_frequency: 5 # evaluation interval (in epoch)
+  save_frequency: 5 # checkpoint save interval (in epoch)
+  disp_frequency: 10 # display interval (in batch)
+  decorator: 'patchnet'
+
+
+tester:
+  format: 'patchnet'
+  resume_model: 'checkpoints/checkpoint_epoch_100.pth'
+  files_fill_set: '/home/gzhan/3DDetection/data/KITTI/ImageSets/val.txt'
+
+
+
+
+
+
