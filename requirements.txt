@@ -1,4 +1,4 @@
 pyyaml
 tqdm
 opencv-python
-sci py
+scipy

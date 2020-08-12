@@ -48,7 +48,7 @@ sh compile.sh
 
 #### Prepare your data
 
-First, you should download the [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d), and organize the data as follows:
+First, you should download the [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d), and organize the data as follows  (*: this is an empty directory to store the data generated in subsequent steps):
 
 ```
 #ROOT
@@ -56,18 +56,24 @@ First, you should download the [KITTI dataset](http://www.cvlibs.net/datasets/ki
     |KITTI
       |2d_detections
       |ImageSets
-      |pickle_files
+      |pickle_files *
       |object			
         |training
           |calib
           |image_2
           |label
+          |depth *
+          |pseudo_lidar (optional for Pseudo-LiDAR)*
+          |velodyne (optional for FPointNet)
         |testing
           |calib
           |image_2
+          |depth *
+          |pseudo_lidar (optional for Pseudo-LiDAR)*
+          |velodyne (optional for FPointNet)
 ```
 
-Then you need to prepare your depth maps. To provide ease of use, we also provide the estimated depth maps (these data generated from the pretrained models provided by [DORN](https://github.com/hufu6371/DORN) and [Pseudo-LiDAR](https://github.com/mileyan/pseudo_lidar)).
+Then you need to prepare your depth maps and put them to `data/KITTI/object/training/depth`. To provide ease of use, we also provide the estimated depth maps (these data generated from the pretrained models provided by [DORN](https://github.com/hufu6371/DORN) and [Pseudo-LiDAR](https://github.com/mileyan/pseudo_lidar)).
 
 | Monocular (DORN)  | Stereo (PSMNet) |
 | ---------------- | ------- |
@@ -81,7 +87,7 @@ python patch_data_prepare.py --gen_train --gen_val --gen_val_rgb_detection --car
 mv *.pickle ../../data/KITTI/pickle_files
 ```
 
-You can also generate the data for pseudo-LiDAR or FPointNet using `frustum_data_prepare.py`. Note you need to run `depth2pseudolidar.py` before generating the data for pseudo-LiDAR based models.
+You can also generate the data for pseudo-LiDAR or FPointNet models using `frustum_data_prepare.py`. Note you need to run `depth2pseudolidar.py` before generating the data for pseudo-LiDAR based models.
 
 
 
