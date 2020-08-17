@@ -2,11 +2,11 @@
 
 ### Introduction
 
-This project is based on our ECCV 2020 paper. In this work, we perform an in-depth investigation and ob- serve that the efficacy of pseudo-LiDAR representation comes from the coordinate transformation, instead of data representation itself. Based on this observation, we design an image based CNN detector named PatchNet, which is more generalized and can be instantiated as pseudo-LiDAR based 3D detectors. Moreover, the pseudo-LiDAR data in our PatchNet is organized as the image representation, which means existing 2D CNN designs can be easily utilized for extracting deep features from input data and boosting 3D detection performance.
+This project is based on our ECCV 2020 paper. In this work, we perform an in-depth investigation and observe that the efficacy of pseudo-LiDAR representation comes from the coordinate transformation, instead of data representation itself. Based on this observation, we design an image based CNN detector named PatchNet, which is more generalized and can be instantiated as pseudo-LiDAR based 3D detectors. Moreover, the pseudo-LiDAR data in our PatchNet is organized as the image representation, which means existing 2D CNN designs can be easily utilized for extracting deep features from input data and boosting 3D detection performance.
 
 
 
-<img src="resources/vis2.jpg" alt="vis2" style="zoom:30%;" />
+<img src="resources/examples.jpg" alt="vis2" style="zoom:30%;" />
 
 
 
@@ -138,9 +138,15 @@ sh run.sh
 
 
 
+### Change Logs
+
+- 08/17/2020: add a sample script for visualization
+
+
+
 ### Acknowlegment
 
-This code largely benefits from the excellent work [FPointNet](https://github.com/charlesq34/frustum-pointnets) and use the pre-trained models provided by [DORN](https://github.com/hufu6371/DORN) and [pseudo-LIDAR](https://github.com/mileyan/pseudo_lidar). Please also consider citing these works.
+This code benefits from the excellent work [FPointNet](https://github.com/charlesq34/frustum-pointnets) and use the pre-trained models provided by [DORN](https://github.com/hufu6371/DORN) and [pseudo-LIDAR](https://github.com/mileyan/pseudo_lidar). Please also consider citing these works.
 
 
 
