@@ -140,7 +140,7 @@ sh run.sh
 
 ### Change Logs
 
-- 08/17/2020: add a sample script for visualization
+- 08/17/2020: add a script for visualization
 
 
 
