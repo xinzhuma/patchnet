@@ -28,7 +28,7 @@ model:
   name: 'patchnet'
   init: 'xavier'
   threshold_offset: 0.5
-  backbone: 'resnext'
+  backbone: 'senet'
 
 scheduler:
   lr_scheduler:
