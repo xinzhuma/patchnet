@@ -16,13 +16,13 @@ dataset:
     random_flip: False
     random_shift: False
     from_rgb_detection: False
-    pickle_file: 'validation/data/path'
+    pickle_file: 'validation/data/path'   # xxxx_val.pickle
   test:
     enable: True
     random_flip: False
     random_shift: False
     from_rgb_detection: True
-    pickle_file: 'testing/data/path'
+    pickle_file: 'testing/data/path'     # xxxxx_val_rgb_detection.pickle'
 
 model:
   name: 'patchnet'

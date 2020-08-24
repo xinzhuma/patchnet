@@ -9,19 +9,19 @@ dataset:
     enable: True
     random_flip: True
     random_shift: True
-    pickle_file: 'training/data/path'
+    pickle_file: 'training/data/path'    # xxxx_train.pickle
   val:
     enable: True
     random_flip: False
     random_shift: False
     from_rgb_detection: False
-    pickle_file: 'validation/data/path'
+    pickle_file: 'validation/data/path'   # xxxx_val.pickle
   test:
     enable: True
     random_flip: False
     random_shift: False
     from_rgb_detection: True
-    pickle_file: 'testing/data/path'
+    pickle_file: 'testing/data/path'      # xxxxx_val_rgb_detection.pickle'
 
 model:
   name: 'fpointnet'
