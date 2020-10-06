@@ -57,7 +57,7 @@ trainer:
 tester:
   format: 'fpointnet'
   resume_model: 'checkpoints/checkpoint_epoch_100.pth'
-  files_fill_set: '/home/gzhan/3DDetection/data/KITTI/ImageSets/val.txt'
+  files_fill_set: '../../data/KITTI/ImageSets/val.txt'
 
 
 
