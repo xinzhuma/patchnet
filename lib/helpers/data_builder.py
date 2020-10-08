@@ -4,7 +4,6 @@ from torch.utils.data import DataLoader
 
 from lib.datasets.frustum_dataset import FrustumDataset
 from lib.datasets.patch_dataset import PatchDataset
-from lib.datasets.am3d_dataset import AM3DDataset
 
 
 # Init datasets and dataloaders
@@ -40,42 +39,6 @@ def build_dataloader(cfg, dataset_helper,logger):
                                           pickle_file=cfg['val']['pickle_file'],
                                           from_rgb_detection=cfg['val']['from_rgb_detection'],
                                           logger=logger)
-            test_loader = DataLoader(dataset=test_dataset,
-                                      batch_size=cfg['batch_size'],
-                                      num_workers=cfg['workers'],
-                                      worker_init_fn=my_worker_init_fn,
-                                      shuffle=False,
-                                      pin_memory=True,
-                                      drop_last=False)
-
-    # ------------------  build am3d dataset -------------------
-    elif cfg['type'] == 'am3d':  # for AM3D
-        train_loader, test_loader = None, None,
-        if cfg['train']['enable']:
-            train_dataset = AM3DDataset(dataset_helper=dataset_helper,
-                                        npoints=cfg['npoints'],
-                                        offset=cfg['threshold_offset'],
-                                        rotate_to_center=cfg['rotate_to_center'],
-                                        random_flip=cfg['train']['random_flip'],
-                                        random_shift=cfg['train']['random_flip'],
-                                        pickle_file=cfg['train']['pickle_file'],
-                                        logger=logger)
-            train_loader = DataLoader(dataset=train_dataset,
-                                      batch_size=cfg['batch_size'],
-                                      num_workers=cfg['workers'],
-                                      worker_init_fn=my_worker_init_fn,
-                                      shuffle=True,
-                                      pin_memory=True,
-                                      drop_last=True)
-        if cfg['val']['enable']:
-            test_dataset = AM3DDataset(dataset_helper=dataset_helper,
-                                       npoints=cfg['npoints'],
-                                       offset=cfg['threshold_offset'],
-                                       rotate_to_center=cfg['rotate_to_center'],
-                                       random_flip=cfg['val']['random_flip'],
-                                       random_shift=cfg['val']['random_flip'],
-                                       pickle_file=cfg['val']['pickle_file'],
-                                       logger=logger)
             test_loader = DataLoader(dataset=test_dataset,
                                       batch_size=cfg['batch_size'],
                                       num_workers=cfg['workers'],
