@@ -152,4 +152,4 @@ This code benefits from the excellent work [FPointNet](https://github.com/charle
 
 ### Contact
 
-If you have any question about this project, please feel free to contact xima0693@uni.sydney.edu.au.
+If you have any question about this project, please feel free to contact xinzhu.ma@sydney.edu.au.
